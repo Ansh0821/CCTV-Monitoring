@@ -7,21 +7,18 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --navbar-height: 60px;
-}
-
 #navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
+  /* position: sticky; */
   top: 0px;
 }
 
 .left {
   width: 33%;
   display: flex;
+  justify-content: flex-start;
 }
 .center {
   width: 33%;
@@ -34,7 +31,7 @@ html {
 
 #navbar::before {
   content: "";
-  background-color: rgba(137, 78, 78, 0.771);
+  background-color: rgba(137, 78, 78, 0.8);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -45,8 +42,7 @@ html {
 }
 #logo {
   display: flex;
-  margin: 2px 2px;
-  left: 0px;
+  margin: 1px 0px;
 }
 
 #logo img {
@@ -74,55 +70,269 @@ html {
 
 #home {
   display: flex;
+  flex-direction: column;
   padding: 2px 5px;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  background: url("bg.jpeg") no-repeat center center/cover;
+  margin-top: 2px;
 }
 
 #home::before {
   content: "";
-  background: url("bg.jpeg") no-repeat center center/cover;
   position: absolute;
-  height: 100vh;
-  top: 1px;
+  height: 100%;
+  top: 0px;
   left: 0px;
   z-index: -10;
   width: 100%;
 }
 
 .intro {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 70px;
 }
 
 #home h1 {
   text-align: center;
   font-size: 3.3rem;
   font-family: "Lugrasimo", cursive;
-  background: linear-gradient(to right, #412a3c, rgba(183, 156, 200, 0.662), rgba(106, 140, 163, 0.536),rgba(135, 114, 181, 0.76));
+  background: linear-gradient(
+    30deg,
+    #412a3c,
+    rgba(183, 156, 200, 0.9),
+    rgba(106, 140, 163, 0.8),
+    rgba(135, 114, 181, 0.9)
+  );
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+
+  background-size: 150%;
+  background-position: -200%;
+
+  animation: animatedHeading 3s -2s reverse infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes animatedHeading {
+  from {
+    background-position: -200%;
+  }
+  to {
+    background-position: 100%;
+  }
 }
 
 #home p {
-  color: #644b61;
+  color: #8f738c;
   display: flex;
-  font-size: 1.2rem;
-  font-family: "Rubik", sans-serif;
+  font-size: 1.25rem;
+  font-family: "Ubuntu Mono", monospace;
   justify-content: center;
   padding: 2px;
   text-align: center;
+  margin: 8px 1px;
 }
 
 .homeimg img {
   height: 450px;
   width: 80vb;
   border-radius: 15px;
-  opacity: 0.65;
+  opacity: 0.7;
 }
 
-.upper{
-    display: flex;
+.upper {
+  display: flex;
+}
+
+#home h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0c383b;
+  background: radial-gradient(rgb(222 204 188 / 77%), rgb(83 71 70 / 80%));
+  padding: 10px 15px;
+  border: rgb(123 112 131 / 90%) outset;
+  border-radius: 23px;
+  margin: 10px;
+  font-family: "Black Ops One", cursive;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.features .content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.features .content li {
+  color: aliceblue;
+  background: -webkit-linear-gradient(
+    -45deg,
+    #a25ca4d5 0%,
+    #883689d7 50%,
+    #8954cad6 63%,
+    #7a6bdeb6 100%
+  );
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefits .content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.benefits .content li {
+  color: aliceblue;
+  background: -webkit-linear-gradient(
+    -45deg,
+    #a25ca4d5 0%,
+    #925193d7 50%,
+    #8954cad6 63%,
+    #7a6bdeb6 100%
+  );
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+}
+
+.content h3 {
+  font-family: "Share Tech", sans-serif;
+  font-size: 1.15rem;
+  color: rgb(168, 210, 210);
+}
+
+.content span {
+  font-family: "Exo 2", sans-serif;
+}
+
+.right img {
+  height: 60px;
+  width: 70px;
+}
+
+.right button {
+  background: transparent;
+  border: none;
+  margin: 2px 5px;
+  cursor: pointer;
+}
+
+.right button:hover {
+  transform: translateY(-5px);
+  transition-duration: 300ms;
+}
+
+#navbar ul li a:hover {
+  color: #8f849d;
+  transform: scale(1.05);
+  transition-duration: 175ms;
+  background-color: #231d37;
+}
+
+#navbar ul li a:active {
+  color: #849d88;
+  text-decoration: underline;
+}
+
+.intro button {
+  background: rgb(17, 17, 17);
+  color: #496d84;
+  font-size: 1.6rem;
+  font-family: 'PT Sans', sans-serif;
+  padding: 6px 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 35px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  outline: none;
+  transition: border-color 0.5s, box-shadow 0.5s, color 0.5s; 
+  z-index: 0;
+}
+
+.intro button:before {
+  content: '';
+  background: linear-gradient(45deg, #d67a7a, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.intro button:hover {
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  color: #fff; /* Change text color on hover */
+}
+
+.intro button:hover:before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  /* position: absolute; */
+  bottom: 0px;
+  font-size: 1.3rem;
+  justify-content: center;
+}
+
+footer::before{
+  content: "";
+  background-color: silver;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  height: 25px;
 }
